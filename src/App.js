@@ -9,12 +9,18 @@ import Detail from './pages/Detail';
 @inject('FirstStore')
 @observer
 class App extends Component {
+
+  componentDidMount() {
+    this.props.FirstStore.getArea();
+  }
+
   render() {
     return (
       <div className="App">
         <Router>
           <div>
             <h1>{this.props.FirstStore.title}</h1>
+            <h1>{this.props.FirstStore.testApiRes}</h1>
             <Switch>
               <Route exact path="/" component={Home}></Route>
               <Route path="/search" component={Search}></Route>
