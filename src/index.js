@@ -3,4 +3,17 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Provider } from 'mobx-react';
+
+import FirstStore from './stores/FirstStore';
+
+const stores = {
+  FirstStore
+};
+
+ReactDOM.render(
+  <Provider {...stores}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
