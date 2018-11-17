@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Detail from './pages/Detail';
+
+@inject('FirstStore')
+@observer
 class App extends Component {
+
+  componentDidMount() {
+    this.props.FirstStore.getArea();
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Router>
+          <div>
+            <h1>{this.props.FirstStore.title}</h1>
+            <h1>{this.props.FirstStore.testApiRes}</h1>
+            <Switch>
+              <Route exact path="/" component={Home}></Route>
+              <Route path="/search" component={Search}></Route>
+              <Route path="/detail/:id" component={Detail}></Route>
+              <Route render={() => <div>일치하는 페이지가 없음</div>} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
