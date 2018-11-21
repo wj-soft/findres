@@ -20,7 +20,6 @@ class App extends Component {
         <Router>
           <div>
             <h1>{this.props.FirstStore.title}</h1>
-            <h1>{this.props.FirstStore.testApiRes}</h1>
             <Switch>
               <Route exact path="/" component={Home}></Route>
               <Route path="/search" component={Search}></Route>
