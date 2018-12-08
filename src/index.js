@@ -5,10 +5,12 @@ import App from './App';
 
 import { Provider } from 'mobx-react';
 
-import FirstStore from './stores/FirstStore';
+import FindRes from './stores/FindRes';
+import AreaInfo from './stores/AreaInfo';
 
 const stores = {
-  FirstStore
+  FindRes,
+  AreaInfo
 };
 
 ReactDOM.render(
