@@ -5,13 +5,13 @@ import request from '../lib/axios';
 
 export class FirstStore {
   @observable title = 'Hello World';
-  @observable testApiRes= '';
+  @observable.shallow testApiRes= [];
   @observable x = 10
   @observable y = 20
 
   @action getArea = () => {
     request.get(getArea()).then(res => {
-      this.testApiRes = res.data.response.body.items.item[0].name
+      this.testApiRes = res.data.response.body.items.item
     })
   }
 
