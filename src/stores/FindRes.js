@@ -3,7 +3,7 @@ import { observable, action, computed } from 'mobx';
 import {getArea} from '../api/tour3';
 import request from '../lib/axios';
 
-export class FirstStore {
+export class FindRes {
   @observable title = 'Hello World';
   @observable.shallow testApiRes= [];
   @observable x = 10
@@ -20,5 +20,5 @@ export class FirstStore {
   }
 }
 
-export default new FirstStore();
+export default new FindRes();
 
