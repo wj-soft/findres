@@ -10,7 +10,7 @@ import AreaInfo from './stores/AreaInfo';
 
 const stores = {
   FindRes,
-  AreaInfo
+  AreaInfo,
 };
 
 ReactDOM.render(

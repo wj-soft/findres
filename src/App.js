@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { observer, inject } from 'mobx-react';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Detail from './pages/Detail';
 
-@observer
+
 class App extends Component {
   render() {
     return (

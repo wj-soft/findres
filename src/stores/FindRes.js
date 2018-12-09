@@ -1,22 +1,21 @@
-import { observable, action, computed } from 'mobx';
-// import request from '../lib/axios';
-import {getArea} from '../api/tour3';
+import { observable, action } from 'mobx';
+import { getDefaultList, changeList } from '../api/tour3';
 import request from '../lib/axios';
 
 export class FindRes {
-  @observable title = 'Hello World';
-  @observable.shallow testApiRes= [];
-  @observable x = 10
-  @observable y = 20
+  @observable.shallow searchList = [];
 
-  @action getArea = () => {
-    request.get(getArea()).then(res => {
-      this.testApiRes = res.data.response.body.items.item
+  @action getSearchList = () => {
+    request.get(getDefaultList()).then(res => {
+      this.searchList = res.data.response.body.items.item
     })
   }
 
-  @computed get sumXY() {
-    return this.x + this.y
+  @action changeList = (sidoCd, gugunCd) => {
+    request.get(changeList(sidoCd, gugunCd)).then(res => {
+      this.searchList = res.data.response.body.items.item
+      console.log(res);
+    })
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
 
-@inject('AreaInfo')
+@inject('AreaInfo', 'FindRes')
 @observer
 class SelectBox extends Component {
 
@@ -9,9 +9,18 @@ class SelectBox extends Component {
     this.props.AreaInfo.getArea();
   }
 
-  handleClick(e) {
-    console.log('change');
-    console.log(e.target.value);
+  selectSido = (e) => {
+    this.props.AreaInfo.selectedSido = e.target.value;
+    this.props.AreaInfo.getGugun(e.target.value);
+  }
+
+  selectGugun = (e) => {
+    this.props.AreaInfo.selectedGugun = e.target.value;
+  }
+
+  searchAreaRes = () => {
+    this.props.FindRes.changeList(this.props.AreaInfo.selectedGugun, this.props.AreaInfo.selectedSido);
+    console.log('searchRes', this.props.AreaInfo.selectedGugun, this.props.AreaInfo.selectedSido);
   }
 
 
@@ -20,22 +29,23 @@ class SelectBox extends Component {
     return (
       <div className="search-option">
         <div className="select-sido">
-          <select name="" id="" onChange={this.handleClick}>
+          <select name="" id="" onChange={this.selectSido}>
+            <option>Plase Select Area (SIDO)</option>
             {this.props.AreaInfo.areaInfo.map( (v, i) => {
               return (<option value={v.code} key={i}>{v.name}</option>)
             })}
           </select>
         </div>
         <div className="select-sigungu">
-          <select name="" id="">
-            <option value="">1111번</option>
-            <option value="">1111번</option>
-            <option value="">1111번</option>
-            <option value="">1111번</option>
+          <select name="" id="" onChange={this.selectGugun}>
+            <option>Plase Select Area (GUGUN)</option>
+            {this.props.AreaInfo.gugunList.map((v, i) => {
+              return (<option value={v.code} key={i}>{v.name}</option>)
+            })}
           </select>
         </div>
         <div className="search-button">
-          <button>찾기버튼</button>
+          <button onClick={this.searchAreaRes}>찾기버튼</button>
         </div>
       </div>
     );
