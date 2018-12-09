@@ -13,8 +13,5 @@ export const getDefaultList = () => {
 }
 
 export const changeList = (sidoCd, gugunCd) => {
-  console.log('@@', sidoCd, gugunCd)
-  const sido = 6
-  return `/areaBasedList?ServiceKey=${key}=ETC&contentTypeId=82&areaCode=${sido}&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=12&pageNo=1`
-
+  return `/areaBasedList?ServiceKey=${key}=ETC&contentTypeId=82&areaCode=${sidoCd}&sigunguCode=${gugunCd}&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=12&pageNo=1`
 }

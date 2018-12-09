@@ -19,11 +19,10 @@ class SelectBox extends Component {
   }
 
   searchAreaRes = () => {
-    this.props.FindRes.changeList(this.props.AreaInfo.selectedGugun, this.props.AreaInfo.selectedSido);
-    console.log('searchRes', this.props.AreaInfo.selectedGugun, this.props.AreaInfo.selectedSido);
+    const sidoCd = this.props.AreaInfo.selectedSido
+    const gugunCd = this.props.AreaInfo.selectedGugun
+    this.props.FindRes.changeList(sidoCd, gugunCd);
   }
-
-
 
   render() {
     return (

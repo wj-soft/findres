@@ -14,7 +14,6 @@ export class FindRes {
   @action changeList = (sidoCd, gugunCd) => {
     request.get(changeList(sidoCd, gugunCd)).then(res => {
       this.searchList = res.data.response.body.items.item
-      console.log(res);
     })
   }
 }
