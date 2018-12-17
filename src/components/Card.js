@@ -6,7 +6,7 @@ class Card extends Component {
     return (
       <Link to={`/detail/${this.props.resId}`}>
         <li className="col">
-          <a href="#"></a>
+          {/* <a href="#"></a> */}
           <div className="card">
             <div className="content-img">
               <img src={this.props.imgUrl} alt="" />
