@@ -24,21 +24,28 @@ class ResInfo extends Component {
     return (
       <div>
         <div>이미지 슬라이더 영역 !!!!!</div>
-        <h1>식당이름 영역{this.props.FindRes.contentInfo.title}</h1>
+        <h1>식당이름 : {this.props.FindRes.contentInfo.title}</h1>
         <hr/>
         <div>
-          <p>이식당은 ~~~~~~
-
-          </p>
           <div>
             <ul>
-              <li>연락처</li>
-              <li>홈페이지</li>
+              <li>식당소개 : {this.props.FindRes.contentInfo.overview}</li>
+              <li>연락처 : {this.props.FindRes.contentInfo.tel}</li>
+              <li>주소 : {this.props.FindRes.contentInfo.addr1}</li>
+              <li>홈페이지 : {this.props.FindRes.contentInfo.homepage}</li>
+              <li>찾아오는길 : {this.props.FindRes.contentInfo.directions}</li>
+              <li>주차시설 : {this.props.FindRes.contentInfo1.parkingfood}</li>
+              <li>영업시간 : {this.props.FindRes.contentInfo1.opentimefood}</li>
+              <li>대표메뉴 : {this.props.FindRes.contentInfo1.firstmenu}</li>
+              <li>취급메뉴 : {this.props.FindRes.contentInfo1.infocenterfood}</li>
+              <li>금연흡연 : {this.props.FindRes.contentInfo1.smoking}</li>
+              <li>예약안내 : {this.props.FindRes.contentInfo1.reservationfood}</li>
             </ul>
           </div>
         </div>
         <div>
           지도영역
+          좌표 : {this.props.FindRes.contentInfo.mapx}, {this.props.FindRes.contentInfo.mapy}
         </div>
         <button>목록으로 돌아가기 버튼</button>
       </div>
