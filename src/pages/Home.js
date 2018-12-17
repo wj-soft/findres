@@ -10,7 +10,6 @@ class Home extends Component {
       <IntroView/>
       <SelectBox/>
       <CardContainer/>
-      
     </div>
     );
   }
