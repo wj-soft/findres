@@ -8,7 +8,7 @@ class Detail extends Component {
       <div className="main wrap">
         <IntroView />
         <SelectBox />
-        <ResInfo />
+        <ResInfo resId={this.props.match.params.id}/>
       </div>
     );
   }

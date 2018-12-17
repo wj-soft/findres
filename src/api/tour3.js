@@ -17,19 +17,19 @@ export const changeList = (sidoCd, gugunCd) => {
 }
 
 export const getContentInfo = (contentId) => {
-  return `/detailCommon?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&contentId=2438428&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y`
+  return `/detailCommon?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&contentId=${contentId}&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y`
 }
 
 export const getContentInfo1 = (contentId) => {
-  return `/detailIntro?ServiceKey=${key}&contentTypeId=82&contentId=1958283&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&introYN=Y`
+  return `/detailIntro?ServiceKey=${key}&contentTypeId=82&contentId=${contentId}&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&introYN=Y`
 }
 
 export const getAddImg = (contentId) => {
-  return `/detailImage?ServiceKey=${key}&contentTypeId=82&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&contentId=926025&imageYN=Y`
+  return `/detailImage?ServiceKey=${key}&contentTypeId=82&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&contentId=${contentId}&imageYN=Y`
 
 }
 
 export const getMenuImg = (contentId) => {
-  return `/detailImage?ServiceKey=${key}&contentTypeId=82&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&contentId=926025&imageYN=N`;
+  return `/detailImage?ServiceKey=${key}&contentTypeId=82&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&contentId=${contentId}&imageYN=N`;
 
 }
