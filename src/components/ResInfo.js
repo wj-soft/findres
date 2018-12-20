@@ -1,5 +1,16 @@
 import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
+import styled from 'styled-components';
+
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  color: white;
+  background: black;
+  height: 50px;
+`;
 
 @inject('AreaInfo', 'FindRes')
 @observer
@@ -23,8 +34,8 @@ class ResInfo extends Component {
   render() {
     return (
       <div>
+        <Title>{this.props.FindRes.contentInfo.title}</Title>
         <div>이미지 슬라이더 영역 !!!!!</div>
-        <h1>식당이름 : {this.props.FindRes.contentInfo.title}</h1>
         <hr/>
         <div>
           <div>
