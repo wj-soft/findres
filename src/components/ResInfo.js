@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
 import styled from 'styled-components';
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
+
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -30,35 +35,48 @@ class ResInfo extends Component {
     this.props.FindRes.getAddImg(this.props.resId);
   }
 
-
   render() {
     return (
       <div>
         <Title>{this.props.FindRes.contentInfo.title}</Title>
         <div>이미지 슬라이더 영역 !!!!!</div>
         <hr/>
-        <div>
-          <div>
-            <ul>
-              <li>식당소개 : {this.props.FindRes.contentInfo.overview}</li>
-              <li>연락처 : {this.props.FindRes.contentInfo.tel}</li>
-              <li>주소 : {this.props.FindRes.contentInfo.addr1}</li>
-              <li>홈페이지 : {this.props.FindRes.contentInfo.homepage}</li>
-              <li>찾아오는길 : {this.props.FindRes.contentInfo.directions}</li>
-              <li>주차시설 : {this.props.FindRes.contentInfo1.parkingfood}</li>
-              <li>영업시간 : {this.props.FindRes.contentInfo1.opentimefood}</li>
-              <li>대표메뉴 : {this.props.FindRes.contentInfo1.firstmenu}</li>
-              <li>취급메뉴 : {this.props.FindRes.contentInfo1.infocenterfood}</li>
-              <li>금연흡연 : {this.props.FindRes.contentInfo1.smoking}</li>
-              <li>예약안내 : {this.props.FindRes.contentInfo1.reservationfood}</li>
-            </ul>
-          </div>
-        </div>
+        <List>
+          <ListItem>
+            <ListItemText primary="식당소개" secondary={this.props.FindRes.contentInfo.overview}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="주소" secondary={this.props.FindRes.contentInfo.addr1}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="연락처" secondary={this.props.FindRes.contentInfo.tel}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="예약안내" secondary={this.props.FindRes.contentInfo1.reservationfood}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="홈페이지" secondary={this.props.FindRes.contentInfo.homepage}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="대표메뉴" secondary={this.props.FindRes.contentInfo1.firstmenu}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="영업시간" secondary={this.props.FindRes.contentInfo1.opentimefood}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="찾아오는 길" secondary={this.props.FindRes.contentInfo.directions}></ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="주차시설" secondary={this.props.FindRes.contentInfo1.parkingfood}></ListItemText>
+          </ListItem>   
+        </List>
         <div>
           지도영역
           좌표 : {this.props.FindRes.contentInfo.mapx}, {this.props.FindRes.contentInfo.mapy}
         </div>
-        <button>목록으로 돌아가기 버튼</button>
+        <Button variant="contained" color="secondary">
+          목록으로 돌아가기 버튼
+        </Button>
       </div>
     );
   }
