@@ -25,6 +25,10 @@ class SelectBox extends Component {
   }
 
   render() {
+    let gugunList = this.props.AreaInfo.gugunList
+    if (!gugunList.length) {
+      gugunList = [];
+    } 
     return (
       <div className="search-option">
         <div className="select-sido">
@@ -38,7 +42,7 @@ class SelectBox extends Component {
         <div className="select-sigungu">
           <select name="" id="" onChange={this.selectGugun}>
             <option>Plase Select Area (GUGUN)</option>
-            {this.props.AreaInfo.gugunList.map((v, i) => {
+            {gugunList.map((v, i) => {
               return (<option value={v.code} key={i}>{v.name}</option>)
             })}
           </select>

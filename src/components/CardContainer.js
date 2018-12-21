@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from './Card';
+import NorResult from './NoResult';
 
 import { observer, inject } from 'mobx-react';
 
@@ -11,6 +12,9 @@ class CardContainer extends Component {
   }
   
   render() {
+    if (!this.props.FindRes.searchList) {
+      return <NorResult/>
+    }
     return (
       <div className="contents">
         <ul>
