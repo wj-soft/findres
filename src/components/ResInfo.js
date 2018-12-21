@@ -39,7 +39,16 @@ class ResInfo extends Component {
     return (
       <div>
         <Title>{this.props.FindRes.contentInfo.title}</Title>
-        <div>이미지 슬라이더 영역 !!!!!</div>
+        <div>
+          {!this.props.FindRes.addImg ? false : this.props.FindRes.addImg.map((v, i) => {
+            return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
+          })}
+        </div>
+        <div>
+          {!this.props.FindRes.menuImg ? false : this.props.FindRes.menuImg.map((v, i) => {
+            return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
+          })}
+        </div>
         <hr/>
         <List>
           <ListItem>
