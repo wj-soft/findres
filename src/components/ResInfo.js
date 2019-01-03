@@ -8,48 +8,20 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  line-height: 1.5em;
-  text-align: center;
-  color: white;
-  background: black;
-  height: 50px;
-`;
-
 @inject('AreaInfo', 'FindRes')
 @observer
 class ResInfo extends Component {
 
   componentDidMount() {
-    //식당의 기본정보 셋팅 this.props.FindRes.contentInfo
-    this.props.FindRes.getContentInfo(this.props.resId);
 
     // 식당의 상세정보 셋팅 
     this.props.FindRes.getContentInfo1(this.props.resId);
-
-    // 식당 메뉴 추가 이미지
-    this.props.FindRes.getMenuImg(this.props.resId);
-
-    // 식당 내부 추가 이미지
-    this.props.FindRes.getAddImg(this.props.resId);
   }
 
   render() {
+    
     return (
       <div>
-        <Title>{this.props.FindRes.contentInfo.title}</Title>
-        <div>
-          {!this.props.FindRes.addImg ? false : this.props.FindRes.addImg.map((v, i) => {
-            return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
-          })}
-        </div>
-        <div>
-          {!this.props.FindRes.menuImg ? false : this.props.FindRes.menuImg.map((v, i) => {
-            return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
-          })}
-        </div>
-        <hr/>
         <List>
           <ListItem>
             <ListItemText primary="식당소개" secondary={this.props.FindRes.contentInfo.overview}></ListItemText>
