@@ -18,10 +18,13 @@ class Navigation extends Component {
 
   componentDidMount(){
    
+    //식당의 기본정보 셋팅 this.props.FindRes.contentInfo
     this.props.FindRes.getContentInfo(this.props.resId);
 
+    // 식당 메뉴 추가 이미지
     this.props.FindRes.getMenuImg(this.props.resId);
 
+    // 식당 내부 추가 이미지 
     this.props.FindRes.getAddImg(this.props.resId);
   }
 
