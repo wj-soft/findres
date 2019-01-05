@@ -43,17 +43,17 @@ class Navigation extends Component {
           </Title>
         </div>
         <div>
-          <Swiper {...params}>
-            <div> 
+          <Swiper {...params} shouldSwiperUpdate="true" >
+             
               {!this.props.FindRes.addImg ? false : this.props.FindRes.addImg.map((v, i) => {
-                return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
+                return  <div><img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/></div>
               })}
-            </div>
-            <div>
+            
+            
               {!this.props.FindRes.menuImg ? false : this.props.FindRes.menuImg.map((v, i) => {
-                return  <img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/>
+                return  <div><img src={v.originimgurl} alt={this.props.FindRes.contentInfo.title} key={i}/></div>
               })}
-            </div>
+            
           </Swiper>
         </div>
       </div>
