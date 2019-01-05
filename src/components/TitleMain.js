@@ -13,7 +13,7 @@ const Title = styled.div`
 
 @inject('AreaInfo', 'FindRes')
 @observer
-class TitleM extends Component {
+class TitleMain extends Component {
   componentDidMount(){
     //식당의 기본정보 셋팅 this.props.FindRes.contentInfo
     this.props.FindRes.getContentInfo(this.props.resId);
@@ -26,4 +26,4 @@ class TitleM extends Component {
   }
 }
 
-export default TitleM;
+export default TitleMain;

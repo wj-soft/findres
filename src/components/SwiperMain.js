@@ -5,7 +5,7 @@ import Swiper from 'react-id-swiper';
 
 @inject('AreaInfo', 'FindRes')
 @observer
-class Navigation extends Component {
+class SwiperMain extends Component {
 
   componentDidMount(){
 
@@ -43,4 +43,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default SwiperMain;
