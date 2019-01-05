@@ -141,3 +141,7 @@ button[type=button]{ -webkit-appearance: none;  appearance: none;}
 .swiper-slide img {
   width: 100%;
 }
+
+h1{
+  line-height: 50px;
+}
