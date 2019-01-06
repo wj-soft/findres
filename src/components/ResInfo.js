@@ -30,6 +30,7 @@ class ResInfo extends Component {
     // 식당의 상세정보 셋팅 
     this.props.FindRes.getContentInfo1(this.props.resId);
 
+   
     // 식당 메뉴 추가 이미지
     this.props.FindRes.getMenuImg(this.props.resId);
 
@@ -81,16 +82,15 @@ class ResInfo extends Component {
             <ListItemText primary="주차시설" secondary={this.props.FindRes.contentInfo1.parkingfood}></ListItemText>
           </ListItem>   
         </List>
-        <div>
-          <a href={`http://maps.google.com/maps?f=d&daddr=${this.props.FindRes.contentInfo.mapy},${this.props.FindRes.contentInfo.mapx}&sspn=0.2,0.1&nav=1`}>지도보기</a>
-        </div>
         <ResMap className="res_map"
         mapx={this.props.FindRes.contentInfo.mapx}
         mapy={this.props.FindRes.contentInfo.mapy}/>
         <a href="#none" className="btn_top"><span className="screen_out">맨위로</span></a>
-        <Button variant="contained" color="secondary">
-          목록으로 돌아가기 버튼
+        <div className="btn_wrap center">
+          <Button className="btn_go_list" variant="contained" color="secondary">
+          목록으로 돌아가기
         </Button>
+        </div>
       </div>
     );
   }

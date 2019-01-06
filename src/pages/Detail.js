@@ -6,8 +6,10 @@ class Detail extends Component {
   render() {
     return (
       <div className="main wrap">
-        <IntroView />
-        <SelectBox />
+        <div className="area_top">
+          <IntroView />
+          <SelectBox />
+        </div>
         <ResInfo resId={this.props.match.params.id}/>
       </div>
     );
