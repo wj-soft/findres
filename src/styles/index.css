@@ -137,3 +137,11 @@ button[type=button]{ -webkit-appearance: none;  appearance: none;}
     margin-right:0;
   }
 }
+
+.swiper-slide img {
+  width: 100%;
+}
+
+h1{
+  line-height: 50px;
+}
