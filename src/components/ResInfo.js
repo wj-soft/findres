@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
 import styled from 'styled-components';
 
+import ResMap from "../components/ResMap";
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -51,12 +53,15 @@ class ResInfo extends Component {
             <ListItemText primary="주차시설" secondary={this.props.FindRes.contentInfo1.parkingfood}></ListItemText>
           </ListItem>   
         </List>
-        <div>
-          <a href={`http://maps.google.com/maps?f=d&daddr=${this.props.FindRes.contentInfo.mapy},${this.props.FindRes.contentInfo.mapx}&sspn=0.2,0.1&nav=1`}>지도보기</a>
-        </div>
-        <Button variant="contained" color="secondary">
-          목록으로 돌아가기 버튼
+        <ResMap className="res_map"
+        mapx={this.props.FindRes.contentInfo.mapx}
+        mapy={this.props.FindRes.contentInfo.mapy}/>
+        <a href="#" className="btn_top"><span className="screen_out">맨위로</span></a>
+        <div className="btn_wrap center">
+          <Button className="btn_go_list" variant="contained" color="secondary">
+          목록으로 돌아가기
         </Button>
+        </div>
       </div>
     );
   }

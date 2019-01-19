@@ -4,7 +4,9 @@
    License: none (public domain)
 */
 
-/************** reset **************/
+/*********************************************************
+ RESET 
+**********************************************************/
 
 html, body, div, span, applet, object, iframe, a, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {
@@ -23,30 +25,61 @@ blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,q:before, q:after {content: '';	content: none;}
 table {border-collapse: collapse;	border-spacing: 0;}
 button[type=button]{ -webkit-appearance: none;  appearance: none;}
+a{text-decoration:none;color:#000;}
 
-/************** main **************/
+.screen_out{position:absolute;width:0;height:0;overflow:hidden;}
 
+/*********************************************************
+ MAIN CONTENTS
+**********************************************************/
+
+/** layout **/
 .App{
   background: tan;
 }
 .main.wrap {
-
+  position: relative;
 }
-.intro-picture {
-  height: 40vh;
-  background: #fff url("http://magazine.hankyung.com/magazinedata/images/photo/201111/700b6016b692b29492fb4947f96d23b1.jpg") no-repeat center;
+.area_top{
+  position:relative;
+}
+
+/** main visual **/
+.intro-visual {
+  position:relative;
+  height: 45vh;
+  background: #fff url("http://inarainbow.dothome.co.kr/sat_study/main_visual_01.jpg") no-repeat center/cover;
   width: 100%;
 }
-
-/* search */
-
+.intro-txt{
+  position: absolute;
+    left:20px;
+    bottom:100px;
+    color:#fff;
+}
+.intro-txt .tit{
+  display:block;
+  font-size:30px;
+}
+.intro-txt .desc{
+  display:block;
+  margin-top:10px;
+  font-size:13px;
+}
+@media (max-width: 580px){
+.intro-txt{
+    bottom:140px;
+  }
+}
+/** search area **/
 .search-option{
+  position:absolute;
+  bottom:0;
   width: 100%;
-  padding:20px;
+  padding:10px;
   border-bottom:1px solid #333;
-  background:#696253;
+  background:rgba(255,255,255,.3);
   text-align:center;
-
   box-sizing:border-box;
 }
 .search-option div, .search-button{
@@ -65,18 +98,46 @@ button[type=button]{ -webkit-appearance: none;  appearance: none;}
   color:#777;
 }
 .search-button button{
-  width:40px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
   border:none;
   text-indent:-9999px;
   background:#fff url(http://inarainbow.dothome.co.kr/sat_study/btn_search.png) no-repeat center center;
 }
+@media (max-width: 580px){
+  .search-option {
+    display: block;
+    padding-left:30px;
+    justify-content: inherit;
+    align-items: inherit;
+    text-align:left;
+  }
+  .search-option::after{
+    content:'';
+    display:block;
+    clear:both;
+  }
+  .search-option div{
+    display:block;
+  }
+  .search-option .select-sigungu{
+    margin-top:10px;
+  }
+  .search-button{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    margin-left: 260px;
+  }
+}
 
-/* content */
-
+/** card contents **/
 .contents{
   width:100%;
   margin:0 auto;
   padding:0 20px 20px;
+  letter-spacing: -.5px;
   box-sizing:border-box;
 }
 .contents > ul::after{
@@ -109,28 +170,27 @@ button[type=button]{ -webkit-appearance: none;  appearance: none;}
   margin-top:20px;
 }
 .content-img {
-  height: 300px;
   overflow: hidden;
   text-align: center;
 }
-
 .content-img  img {
   width: 100%;
 }
-
 .content-txt {
-  height:100px;
-  padding:20px;
-  line-height:24px;
-  color: #555;
+  padding:50px 20px 30px;
+  color: #000;
+}
+.content-txt .tit{
+  font-size:18px;
+  line-height:28px;
+}
+.content-txt .desc{
+  font-size:14px;
+  line-height:20px;
+  color:#555;
 }
 
-@media (max-width: 640px){
-  .search-option {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+@media (max-width: 580px){
   .contents > ul > li{
     float:none;
     width:100%;
@@ -144,4 +204,66 @@ button[type=button]{ -webkit-appearance: none;  appearance: none;}
 
 h1{
   line-height: 50px;
+}
+/*********************************************
+ SUB CONTENTS
+**********************************************/
+
+/** map **/
+.res_map{
+  padding:11px 16px;
+  box-sizing:border-box;
+  height:300px;
+}
+
+/** btn **/
+.btn_wrap{
+  display:block;
+  width:100%;
+  padding:20px;
+  box-sizing:border-box;
+}
+.btn_wrap.center{
+  text-align:center;
+}
+
+/* btn > top */
+.btn_top{
+  display:inline-block;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#000;
+  text-align:center;
+}
+.btn_top::before{
+  content: 'TOP';
+  display:inline-block;
+  position:relative;
+  padding-top: 18px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+.btn_top::after{
+  content:'';
+  display:inline-block;
+  position: absolute;
+  top:9px;
+  left:50%;
+  margin-left:-3px;
+  width:5px;
+  height:5px;
+  border-width:2px 0 0 2px;
+  border-color:#fff;
+  border-style:solid;
+  transform:rotate(45deg);
+}
+
+/* btn > go_list */
+.btn_go_list{
+  display:inline-block;
 }

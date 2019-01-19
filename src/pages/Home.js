@@ -8,8 +8,10 @@ class Home extends Component {
   render() {
     return (
     <div className="main wrap">
-      <IntroView/>
-      <SelectBox/>
+      <div className="area_top">
+        <IntroView />
+        <SelectBox />
+      </div>
       <CardContainer/>
       <ScrollTop/>
     </div>
