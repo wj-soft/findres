@@ -85,7 +85,7 @@ class ResInfo extends Component {
         <ResMap className="res_map"
         mapx={this.props.FindRes.contentInfo.mapx}
         mapy={this.props.FindRes.contentInfo.mapy}/>
-        <a href="#none" className="btn_top"><span className="screen_out">맨위로</span></a>
+        <a href="#" className="btn_top"><span className="screen_out">맨위로</span></a>
         <div className="btn_wrap center">
           <Button className="btn_go_list" variant="contained" color="secondary">
           목록으로 돌아가기
