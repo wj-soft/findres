@@ -1,23 +1,37 @@
-import { observable, action } from 'mobx';
-import { getDefaultList, changeList, getContentInfo, getContentInfo1, getAddImg, getMenuImg } from '../api/tour3';
+import { observable, action, toJS } from 'mobx';
+import { getDefaultList, changeList, getContentInfo, getContentInfo1, getAddImg, getMenuImg, addList } from '../api/tour3';
 import request from '../lib/axios';
 
 export class FindRes {
-  @observable.shallow searchList = [];
+  @observable searchList = [];
   @observable contentInfo = '';
   @observable contentInfo1 = '';
   @observable menuImg = [];
   @observable addImg = [];
+  currentPage = 1;
+  totalCount = 0;
 
   @action getSearchList = () => {
     request.get(getDefaultList()).then(res => {
-      this.searchList = res.data.response.body.items.item
+      this.searchList = toJS(res.data.response.body.items.item)
+      this.totalCount = res.data.response.body.totalCount
+    })
+  }
+
+  @action getMoreList = (x,y,z) => {
+    request.get(addList(x, y, z)).then(res => {
+      const moreContent = toJS(res.data.response.body.items.item)
+      if (!moreContent) {
+        alert('컨텐츠 없음');
+        return false;
+      }
+      this.searchList.push(...moreContent)
     })
   }
 
   @action changeList = (sidoCd, gugunCd) => {
     request.get(changeList(sidoCd, gugunCd)).then(res => {
-      this.searchList = res.data.response.body.items.item
+      this.searchList = toJS(res.data.response.body.items.item)
     })
   }
 

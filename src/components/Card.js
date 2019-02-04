@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 class Card extends Component {
   render() {
+    const imgUrl = this.props.imgUrl ? this.props.imgUrl : 'http://kaverisias.com/wp-content/uploads/2018/01/catalog-default-img.gif'
     return (
       <li className="col">
           {/* <a href="#"></a> */}
           <div className="card">
             <div className="content-img">
               <Link to={`/detail/${this.props.resId}`}>
-                <img src={this.props.imgUrl} alt="" />
+                <img src={imgUrl} alt="" />
               </Link>
             </div>
             <div className="content-txt">

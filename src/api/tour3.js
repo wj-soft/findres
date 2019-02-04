@@ -9,15 +9,19 @@ export const getGugun = (sidoCd) => {
 }
 
 export const getDefaultList = () => {
-  return `/areaBasedList?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=12&pageNo=1`
+  return `/areaBasedList?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&areaCode=&sigunguCode=&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=20&pageNo=1`
 }
 
 export const changeList = (sidoCd, gugunCd) => {
-  return `/areaBasedList?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&areaCode=${sidoCd}&sigunguCode=${gugunCd}&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=12&pageNo=1`
+  return `/areaBasedList?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&areaCode=${sidoCd}&sigunguCode=${gugunCd}&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=20&pageNo=1`
+}
+
+export const addList = (sidoCd, gugunCd, page) => {
+  return `/areaBasedList?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&areaCode=${sidoCd}&sigunguCode=${gugunCd}&cat1=&cat2=&cat3=&listYN=Y&MobileOS=ETC&MobileApp=TourAPI3.0_Guide&arrange=A&numOfRows=20&pageNo=${page}`
 }
 
 export const getContentInfo = (contentId) => {
-  return `/detailCommon?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&contentId=${contentId}&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y`
+  return `/detailCommon?ServiceKey=${key}&MobileOS=ETC&contentTypeId=82&contentId=${contentId}&MobileApp=TourAPI3.0_Guide&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&transGuideYN=Y&`
 }
 
 export const getContentInfo1 = (contentId) => {
