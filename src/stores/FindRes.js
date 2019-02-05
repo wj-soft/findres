@@ -13,24 +13,27 @@ export class FindRes {
 
   @action getSearchList = () => {
     request.get(getDefaultList()).then(res => {
+      this.currentPage = 1
       this.searchList = toJS(res.data.response.body.items.item)
       this.totalCount = res.data.response.body.totalCount
     })
   }
 
-  @action getMoreList = (x,y,z) => {
-    request.get(addList(x, y, z)).then(res => {
+  @action getMoreList = (sido,sigungu) => {
+    request.get(addList(sido, sigungu, this.currentPage +1)).then(res => {
       const moreContent = toJS(res.data.response.body.items.item)
       if (!moreContent) {
         alert('컨텐츠 없음');
         return false;
       }
       this.searchList.push(...moreContent)
+      this.currentPage++
     })
   }
 
   @action changeList = (sidoCd, gugunCd) => {
     request.get(changeList(sidoCd, gugunCd)).then(res => {
+      this.currentPage = 1
       this.searchList = toJS(res.data.response.body.items.item)
     })
   }

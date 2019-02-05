@@ -22,7 +22,7 @@ class CardContainer extends Component {
   }
 
   moreList = () => {
-    this.props.FindRes.getMoreList(this.props.AreaInfo.selectedSido, this.props.AreaInfo.selectedGugun, 2);
+    this.props.FindRes.getMoreList(this.props.AreaInfo.selectedSido, this.props.AreaInfo.selectedGugun);
   }
   
   render() {
